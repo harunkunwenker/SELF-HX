@@ -55,9 +55,9 @@ const { jadibot, stopjadibot, listjadibot } = require('./lib/jadibot')
 
 banChats = true
 offline = false
-targetpc = '6285751056816'
-owner = '6285751056816'
-fake = 'HEXAGONZ'
+targetpc = '380944486343'
+owner = '380944486343'
+fake = '𝚂𝙰𝚈u𝙱𝚘𝚝𝚣'
 numbernye = '0'
 waktu = '-'
 alasan = '-'
@@ -976,7 +976,7 @@ ${anime.desc}\n\n*Link Batch* : ${anime.batch}\n*Link Download SD* : ${anime.bat
                         const { dl_link, thumb, title, filesizeF, filesize } = res
                         axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
                         .then(async (a) => {
-                        if (Number(filesize) >= 100000) return sendMediaURL(from, thumb, `*PLAY MUSIC*\n\n*Title* : ${title}\n*Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_Untuk durasi lebih dari batas disajikan dalam mektuk link_`)
+                        if (Number(filesize) >= 100000) return sendMediaURL(from, thumb, `*PLAY MUSIC*\n\n*Title* : ${title}\n*Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_Untuk durasi lebih dari batas disajikan dalam bentuk link_`)
                         const captions = `*PLAY MUSIC*\n\n*Title* : ${title}\n*Ext* : MP3\n*Size* : ${filesizeF}\n*Link* : ${a.data}\n\n_Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
                         sendMediaURL(from, thumb, captions)
                         await sendMediaURL(from, dl_link).catch(() => reply('error'))
@@ -998,7 +998,7 @@ ${anime.desc}\n\n*Link Batch* : ${anime.batch}\n*Link Download SD* : ${anime.bat
                         const { dl_link, thumb, title, filesizeF, filesize } = res
                         axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
                         .then(async (a) => {
-                        if (Number(filesize) >= 100000) return sendMediaURL(from, thumb, `*PLAY VIDEO*\n\n*Title* : ${title}\n*Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_Untuk durasi lebih dari batas disajikan dalam mektuk link_`)
+                        if (Number(filesize) >= 100000) return sendMediaURL(from, thumb, `*PLAY VIDEO*\n\n*Title* : ${title}\n*Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_Untuk durasi lebih dari batas disajikan dalam bentuk link_`)
                         const captions = `*PLAY VIDEO*\n\n*Title* : ${title}\n*Ext* : MP4\n*Size* : ${filesizeF}\n*Link* : ${a.data}\n\n_Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
                         sendMediaURL(from, thumb, captions)
                         await sendMediaURL(from, dl_link).catch(() => reply('error'))
@@ -1137,7 +1137,7 @@ ${anime.desc}\n\n*Link Batch* : ${anime.batch}\n*Link Download SD* : ${anime.bat
 				const { dl_link, thumb, title, filesizeF, filesize } = res
 				axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
 				.then((a) => {
-				if (Number(filesize) >= 40000) return sendMediaURL(from, thumb, `*YTMP 4!*\n\n*Title* : ${title}\n*Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_Untuk durasi lebih dari batas disajikan dalam mektuk link_`)
+				if (Number(filesize) >= 40000) return sendMediaURL(from, thumb, `*YTMP 4!*\n\n*Title* : ${title}\n*Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_Untuk durasi lebih dari batas disajikan dalam bentuk link_`)
 				const captionsYtmp4 = `*Data Berhasil Didapatkan!*\n\n*Title* : ${title}\n*Ext* : MP4\n*Size* : ${filesizeF}\n\n_Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
 				sendMediaURL(from, thumb, captionsYtmp4)
 				sendMediaURL(from, dl_link).catch(() => reply(mess.error.api))
@@ -1167,7 +1167,7 @@ ${anime.desc}\n\n*Link Batch* : ${anime.batch}\n*Link Download SD* : ${anime.bat
 				const { dl_link, thumb, title, filesizeF, filesize } = res
 				axios.get(`https://tinyurl.com/api-create.php?url=${dl_link}`)
 				.then((a) => {
-			    if (Number(filesize) >= 30000) return sendMediaURL(from, thumb, `*Data Berhasil Didapatkan!*\n\n*Title* : ${title}\n*Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_Untuk durasi lebih dari batas disajikan dalam mektuk link_`)
+			    if (Number(filesize) >= 30000) return sendMediaURL(from, thumb, `*Data Berhasil Didapatkan!*\n\n*Title* : ${title}\n*Ext* : MP3\n*Filesize* : ${filesizeF}\n*Link* : ${a.data}\n\n_Untuk durasi lebih dari batas disajikan dalam bentuk link_`)
 				const captions = `*YTMP3*\n\n*Title* : ${title}\n*Ext* : MP3\n*Size* : ${filesizeF}\n\n_Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
 				sendMediaURL(from, thumb, captions)
 				sendMediaURL(from, dl_link).catch(() => reply(mess.error.api))
