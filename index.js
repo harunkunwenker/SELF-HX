@@ -52,8 +52,6 @@ const voting = JSON.parse(fs.readFileSync('./lib/voting.json'))
 const { addVote, delVote } = require('./lib/vote')
 const { jadibot, stopjadibot, listjadibot } = require('./lib/jadibot')
 
-let antilink = JSON.parse(fs.readFileSync('./database/antilink.json'))
-
 
 banChats = true
 offline = false
@@ -104,7 +102,6 @@ module.exports = hexa = async (hexa, mek) => {
         const isVote = isGroup ? voting.includes(from) : false
         const conts = mek.key.fromMe ? hexa.user.jid : hexa.contacts[sender] || { notify: jid.replace(/@.+/, '') }
         const pushname = mek.key.fromMe ? hexa.user.name : conts.notify || conts.vname || conts.name || '-'
-	const isAntiLink = isGroup ? antilink.includes(from) : false
 
 
         //MESS
@@ -242,17 +239,6 @@ module.exports = hexa = async (hexa, mek) => {
                 });
             }   
 	
-            /////***𝙁𝙐𝙉𝙏𝙄𝙊𝙉 𝘼𝙉𝙏𝙄𝙇𝙄𝙉𝙆 𝙂𝙍𝙐𝙋***\\\\\
-				if (budy.includes("https://chat.whatsapp.com/")) {
-				if (!isGroup) return
-				if (!isAntiLink) return
-				if (isGroupAdmins) return
-				var kic = `${sender.split("@")[0]}@s.whatsapp.net`
-				reply(` *「 GROUP LINK DETECTOR 」*\nKamu mengirimkan link grup, maaf kamu saya kick dari grup :(`)
-				setTimeout(() => {
-				xdev.groupRemove(from, [kic]).catch((e) => { reply(`BOT HARUS JADI ADMIN`) })
-				}, 0)
-			    }
 //FUNCTION
             cekafk(afk)
             if (!mek.key.remoteJid.endsWith('@g.us') && offline){
@@ -438,7 +424,6 @@ Prefix : 「 MULTI-PREFIX 」
 ► _${prefix}inspect_
 ► _${prefix}caripesan_ <query>
 ► _${prefix}get_
-► _${prefix}antilink_ <1/0>
 
 *</JADI BOT>*
 ► _${prefix}jadibot_
@@ -1413,26 +1398,6 @@ ${anime.desc}\n\n*Link Batch* : ${anime.batch}\n*Link Download SD* : ${anime.bat
             fs.unlinkSync(owgi)
             break
 
-case 'antilink':
-					if (!isGroup) return reply('Kusus group')
-					if (!isGroupAdmins) return reply('Kusus admin')
-					if (!isBotGroupAdmins) return reply('Bot jadiin admin dlu')
-					if (args.length < 1) return reply(`untuk mengaktifkan ketik : ${prefix}antilink 1`)
-					if (Number(args[0]) === 1) {
-						if (isAntiLink) return reply('Sudah Aktif Kak')
-						antilink.push(from)
-						fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
-						reply('_Success mengaktifkan antilink digroup ini!_')
-					} else if (Number(args[0]) === 0) {
-						if (!isAntiLink) return reply('Sudah Mati Kak')
-						var ini = antilink.indexOf(from)
-						antilink.splice(ini, 1)
-						fs.writeFileSync('./database/antilink.json', JSON.stringify(antilink))
-						reply('_Success mematikan antilink digroup ini!_')
-					} else {
-						reply('1 untuk mengaktifkan, 0 untuk mematikan')
-					}
-					break
     case 'tourl':
             if ((isMedia && !mek.message.videoMessage || isQuotedImage || isQuotedVideo ) && args.length == 0) {
             boij = isQuotedImage || isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
